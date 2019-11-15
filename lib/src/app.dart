@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+
   final barColor = const Color(0xFF1f2833);
   final bgColor = const Color(0xFFc5c6c7);
   final iconColor = const Color(0xFFedb5bf);
+  final yeetColor = const Color(0xFF2F4F4F);
 
 class HomePage extends StatelessWidget {
 
@@ -88,6 +90,14 @@ class HomePage extends StatelessWidget {
               title: new Text('Close', style: TextStyle(color: Colors.white),),
               trailing:  new Icon(Icons.cancel, color: iconColor,),
               onTap: () => Navigator.of(context).pop(),
+            ),
+               new ListTile(
+              title: new Text('Log Out', style: TextStyle(color: Colors.white)),
+              trailing:  new Icon(Icons.cancel, color: iconColor,),
+              onTap: () {
+                Navigator.of(context).pop(); 
+                Navigator.of(context).pushNamed("/LoginPage");
+                },
             ),
           ],
         ),
