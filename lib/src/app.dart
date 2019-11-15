@@ -238,6 +238,7 @@ final formKey = GlobalKey<FormState>();
  String _name, _people, _description;
 
  
+
    Widget build(context){
      return new Scaffold (
        backgroundColor: bgColor,
