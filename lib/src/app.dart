@@ -202,8 +202,10 @@ class NotificationsPage extends StatelessWidget {
 
 //projects
 class Projects extends StatefulWidget{
-  Projects ({this.name});
-  final String name;
+  
+ final String value;
+
+  Projects({Key key, this.value}) : super(key: key);
   @override
   ProjectsState createState() =>  ProjectsState();
   
@@ -224,7 +226,8 @@ class  ProjectsState extends State <Projects> {
           body: new Center(
          child: new Column(
            children: <Widget>[
-            
+             
+            new Text("${widget.value}"),
 
            ],
          ),
@@ -244,10 +247,14 @@ class CreateProject extends StatefulWidget{
 
 class  CreateProjectState extends State <CreateProject> {
 final formKey = GlobalKey<FormState>();
+var _textController = new TextEditingController();
 
- String _name, _people, _description;
+ String name, people, description;
 
  
+
+ 
+
    Widget build(context){
      return new Scaffold (
        backgroundColor: bgColor,
@@ -265,12 +272,15 @@ final formKey = GlobalKey<FormState>();
              child: Column(
                mainAxisSize: MainAxisSize.min,
                children: <Widget>[
+                 
                  TextFormField(
+                   controller: _textController,
                    decoration: InputDecoration(
                     labelText: 'Project name:'
                    ),
+                    
                    validator:  (input) => input.length > 15 ? 'Name max 15 characters' : null,
-                    onSaved: (input) => _name = input,
+                    onSaved: (input) => name = input,
 
                    ),
                    TextFormField(
@@ -278,7 +288,7 @@ final formKey = GlobalKey<FormState>();
                     labelText: 'Project description:'
                    ),
                    validator:  (input) => input.length < 20 ? 'Description needs to be atleast 20 characters' : null,
-                    onSaved: (input) => _description = input,
+                    onSaved: (input) => description = input,
 
                    ),
                    TextFormField(
@@ -286,7 +296,7 @@ final formKey = GlobalKey<FormState>();
                     labelText: 'People:'
                    ),
                    validator:  (input) => input.length > 30 ? 'Max 3 people' : null,
-                   onSaved: (input) => _people = input,
+                   onSaved: (input) => people = input,
                    ),
                    Row(
                      mainAxisAlignment: MainAxisAlignment.end,
@@ -295,7 +305,22 @@ final formKey = GlobalKey<FormState>();
                          padding: const EdgeInsets.all(8.0),
                          child: RaisedButton(
                            onPressed: (){
-                            _submit();
+                            
+                            if(formKey.currentState.validate()){
+
+
+                            
+                            var route = new MaterialPageRoute(
+                              builder: (BuildContext context) => 
+                              new Projects(value: _textController.text),
+
+                             
+                            );
+                             formKey.currentState.save();
+                             Navigator.of(context).push(route);
+                            }
+                           // _submit();
+                            
                             
                           // arttu on paskea
                            }, 
@@ -314,15 +339,16 @@ final formKey = GlobalKey<FormState>();
      );
    }
    
-   void _submit(){
+   /*void _submit(){
      if(formKey.currentState.validate()){
     formKey.currentState.save();
-    Navigator.of(context).pushNamed("/Projects");
     
-    print(_name);
-    print(_description);
-    print(_people);
+    
+    print(name);
+    print(description);
+    print(people);
      
      }
    }
+   */
 }
