@@ -9,7 +9,7 @@ import 'package:table_calendar/table_calendar.dart';
   final yeetColor = const Color(0xFF2F4F4F);
 
 class HomePage extends StatelessWidget {
-//kikkeli
+  //kikkeli
   Widget build(context){
     return new Scaffold(
       body: Center(
@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
               trailing:  new Icon(Icons.cancel, color: iconColor,),
               onTap: () => Navigator.of(context).pop(),
             ),
-               new ListTile(
+                           new ListTile(
               title: new Text('Log Out', style: TextStyle(color: Colors.white)),
               trailing:  new Icon(Icons.cancel, color: iconColor,),
               onTap: () {
@@ -165,7 +165,7 @@ _controller = CalendarController();
              TableCalendar(calendarController: _controller,
              startingDayOfWeek: StartingDayOfWeek.monday,
              availableCalendarFormats: const {
-             CalendarFormat.month: '',
+             CalendarFormat.month: '2',
       },
              calendarStyle: CalendarStyle(
                todayColor: barColor, ),
@@ -227,8 +227,10 @@ class  ProjectsState extends State <Projects> {
          child: new Column(
            children: <Widget>[
              
-            new Text("${widget.value}"),
-
+            new Text("Insert many pröjects here pls"),
+            
+            
+             
            ],
          ),
         ),
@@ -237,118 +239,3 @@ class  ProjectsState extends State <Projects> {
 }
 
 //create project
-class CreateProject extends StatefulWidget{
-
-  @override
-  CreateProjectState createState() =>  CreateProjectState();
-  
-}
-
-
-class  CreateProjectState extends State <CreateProject> {
-final formKey = GlobalKey<FormState>();
-var _textController = new TextEditingController();
-
- String name, people, description;
-
- 
-
- 
-
-   Widget build(context){
-     return new Scaffold (
-       backgroundColor: bgColor,
-       appBar: new AppBar(title: new Text('Create Project'),
-       iconTheme: new IconThemeData(color: iconColor),
-       centerTitle: true,
-       backgroundColor: barColor,
-       ),
-       //form
-       body:  Card (
-         child: Padding(
-           padding: EdgeInsets.all(8.0),
-           child: Form(
-             key: formKey,
-             child: Column(
-               mainAxisSize: MainAxisSize.min,
-               children: <Widget>[
-                 
-                 TextFormField(
-                   controller: _textController,
-                   decoration: InputDecoration(
-                    labelText: 'Project name:'
-                   ),
-                    
-                   validator:  (input) => input.length > 15 ? 'Name max 15 characters' : null,
-                    onSaved: (input) => name = input,
-
-                   ),
-                   TextFormField(
-                   decoration: InputDecoration(
-                    labelText: 'Project description:'
-                   ),
-                   validator:  (input) => input.length < 20 ? 'Description needs to be atleast 20 characters' : null,
-                    onSaved: (input) => description = input,
-
-                   ),
-                   TextFormField(
-                   decoration: InputDecoration(
-                    labelText: 'People:'
-                   ),
-                   validator:  (input) => input.length > 30 ? 'Max 3 people' : null,
-                   onSaved: (input) => people = input,
-                   ),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.end,
-                     children: <Widget>[
-                       Padding(
-                         padding: const EdgeInsets.all(8.0),
-                         child: RaisedButton(
-                           onPressed: (){
-                            
-                            if(formKey.currentState.validate()){
-
-
-                            
-                            var route = new MaterialPageRoute(
-                              builder: (BuildContext context) => 
-                              new Projects(value: _textController.text),
-
-                             
-                            );
-                             formKey.currentState.save();
-                             Navigator.of(context).push(route);
-                            }
-                           // _submit();
-                            
-                            
-                          // arttu on paskea
-                           }, 
-                           child: Text('Submit'),
-                          ),
-                          
-                           
-                       )
-                     ],
-                   )
-               ],
-             ),
-             ),
-         )
-        ),
-     );
-   }
-   
-   /*void _submit(){
-     if(formKey.currentState.validate()){
-    formKey.currentState.save();
-    
-    
-    print(name);
-    print(description);
-    print(people);
-     
-     }
-   }
-   */
-}
