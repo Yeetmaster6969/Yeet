@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import "src/app.dart";
 import "src/login_page.dart";
 import "src/create_project.dart";
+import "src/projects.dart";
+import "src/notifications.dart";
+import "src/calendar.dart";
 
 void main() { 
   runApp(
