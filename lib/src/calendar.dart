@@ -35,8 +35,11 @@ _controller = CalendarController();
              TableCalendar(calendarController: _controller,
              startingDayOfWeek: StartingDayOfWeek.monday,
              availableCalendarFormats: const {
-             CalendarFormat.month: '2',
+             CalendarFormat.month: 'month',
+             CalendarFormat.twoWeeks: 'Two weeks'
+             
       },
+      
              calendarStyle: CalendarStyle(
                todayColor: barColor, ),
                 )
