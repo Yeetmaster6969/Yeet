@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "320322876220",
+    "firebase_url": "https://yeetmachine-5ee67.firebaseio.com",
+    "project_id": "yeetmachine-5ee67",
+    "storage_bucket": "yeetmachine-5ee67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320322876220:android:2876cb1a28fa89a0dde439",
+        "android_client_info": {
+          "package_name": "com.pap.tuntikirjanpito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320322876220-kfj31qrhetuslb3sarcv0ieigie8q5v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz8rBpRTDgpnZ4RMr0_0yzlZ_ghyc7eBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320322876220-kfj31qrhetuslb3sarcv0ieigie8q5v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
