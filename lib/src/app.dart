@@ -91,13 +91,20 @@ class HomePage extends StatelessWidget {
               trailing:  new Icon(Icons.cancel, color: iconColor,),
               onTap: () => Navigator.of(context).pop(),
             ),
+            Container( child: Align(
+                alignment: FractionalOffset.bottomCenter,
+              
                            new ListTile(
               title: new Text('Log Out', style: TextStyle(color: Colors.white)),
               trailing:  new Icon(Icons.cancel, color: iconColor,),
+              
+              
               onTap: () {
                 Navigator.of(context).pop(); 
                 Navigator.of(context).pushNamed("/LoginPage");
                 },
+              )
+             )
             ),
           ],
         ),
